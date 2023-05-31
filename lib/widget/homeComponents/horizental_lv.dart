@@ -9,7 +9,7 @@ import 'package:task/model/data.dart';
 // ignore: camel_case_types
 class horizontalList1 extends StatelessWidget {
   const horizontalList1({
-    super.key,
+  super.key,
   });
 
   @override
@@ -33,36 +33,52 @@ class horizontalList1 extends StatelessWidget {
             ),
           ),
           child: Center(
-            child: ListTile(
-              leading: Container(
-                width: w * .1,
-                height: h * .06,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Data.listViewData1[index]['color'].withOpacity(0.4),
+              child: Container(
+                width: w * .48,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      width: w * .09,
+                      height: h * .06,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Data.listViewData1[index]['color'].withOpacity(0.4),
+                      ),
+                      child: Icon(
+                        Data.listViewData1[index]['icon'],
+                        color: Data.listViewData1[index]['color'],
+                        size: w * .05,
+                      ),
+                    ),
+                    Container(
+                      width:  w * .3,
+                      height: h * .06,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            Data.listViewData1[index]['title'],
+                            style: GoogleFonts.nunito(
+                                fontSize: 15, fontWeight: FontWeight.w700),
+                          ),
+                          SizedBox(height: h*.005,),
+                          Text(
+                            Data.listViewData1[index]['sub'],
+                            style: GoogleFonts.nunito(
+                                fontSize: 13,
+                                color: AppColors.iconsGray,
+                                fontWeight: FontWeight.w700),
+
+                          )
+                        ],
+                      ),
+                    )
+                  ],
                 ),
-                child: Icon(
-                  Data.listViewData1[index]['icon'],
-                  color: Data.listViewData1[index]['color'],
-                  size: w * .05,
-                ),
-              ),
-              title: Text(
-                Data.listViewData1[index]['title'],
-                style: GoogleFonts.nunito(
-                    fontSize: 15, fontWeight: FontWeight.w700),
-              ),
-              subtitle: SizedBox(
-                width: w * .45,
-                child: Text(
-                  Data.listViewData1[index]['sub'],
-                  style: GoogleFonts.nunito(
-                      fontSize: 12,
-                      color: AppColors.iconsGray,
-                      fontWeight: FontWeight.w700),
-                ),
-              ),
-            ),
+              )
           ),
         ),
       ),
